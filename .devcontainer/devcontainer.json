@@ -1,0 +1,21 @@
+{
+  "name": "React + .NET 8 DevContainer",
+  "workspaceFolder": "/workspaces/PoC-DISCO-monitoring-tool",
+  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "22"
+    },
+    "ghcr.io/devcontainers/features/git:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-dotnettools.csharp",
+        "esbenp.prettier-vscode"
+      ]
+    }
+  },
+  "remoteUser": "vscode",
+  "postCreateCommand": "dotnet --info && node --version && npm --version && git --version"
+}
