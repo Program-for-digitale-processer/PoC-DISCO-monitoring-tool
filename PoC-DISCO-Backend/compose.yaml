@@ -1,0 +1,7 @@
+﻿services:
+  poc-disco-backend:
+    image: poc-disco-backend
+    build:
+      context: .
+      dockerfile: PoC-DISCO-Backend/Dockerfile
+
