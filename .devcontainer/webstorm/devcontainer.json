@@ -1,18 +1,20 @@
 {
   "name": "WebStorm Node.js 22 DevContainer",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22", // Official Node 22 image
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {} // Install Git
+    "ghcr.io/devcontainers/features/git:1": {} 
   },
   "remoteUser": "node",
 
   "workspaceFolder": "/workspaces/PoC-DISCO-monitoring-tool/PoC-DISCO-frontend",
   
   
-  // Verifies tools are ready after build
   "postCreateCommand": "node --version && npm --version && git --version",
 
   "customizations": {
+    "jetbrains": {
+      "backend": "rider"
+    },
     "vscode": {
       "extensions": [
         "dbaeumer.vscode-eslint",

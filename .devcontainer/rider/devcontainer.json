@@ -1,15 +1,17 @@
 {
   "name": "Rider .NET 8 DevContainer",
-  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0", // Official .NET 8 SDK
+  "image": "mcr.microsoft.com/devcontainers/dotnet:8.0", 
   "features": {
-    "ghcr.io/devcontainers/features/git:1": {} // Installs Git inside container
+    "ghcr.io/devcontainers/features/git:1": {} 
   },
   "remoteUser": "vscode",
 
-  // Verifies tools are ready after build
   "postCreateCommand": "dotnet --info && git --version",
 
   "customizations": {
+    "jetbrains": {
+      "backend": "rider"
+    },
     "vscode": {
       "extensions": [
         "ms-dotnettools.csharp"
