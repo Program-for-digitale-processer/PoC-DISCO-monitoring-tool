@@ -6,6 +6,9 @@
   },
   "remoteUser": "vscode",
 
+  "forwardPorts": [5173, 5000, 5001],
+
+
   // Verifies tools are ready after build
   "postCreateCommand": "dotnet --info && git --version",
 
