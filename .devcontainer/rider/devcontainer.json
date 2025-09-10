@@ -6,6 +6,8 @@
   },
   "remoteUser": "vscode",
 
+  "forwardPorts": [5173, 5000, 5001],
+
   "postCreateCommand": "dotnet --info && git --version",
 
   "customizations": {
