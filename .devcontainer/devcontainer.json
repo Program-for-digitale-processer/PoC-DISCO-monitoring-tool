@@ -9,6 +9,9 @@
     "ghcr.io/devcontainers/features/git:1": {}
   },
   "customizations": {
+    "jetbrains": {
+      "backend": "rider"
+    },
     "vscode": {
       "extensions": [
         "ms-dotnettools.csharp",
