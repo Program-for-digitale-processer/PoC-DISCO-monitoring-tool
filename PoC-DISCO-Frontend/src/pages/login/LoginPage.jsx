@@ -1,9 +1,8 @@
-// src/pages/auth/LoginPage.jsx
 import { useState } from "react";
 import LoginForm from "../../components/LoginForm.jsx";
 import {useAuth} from "../../utils/auth/AuthProvider.jsx";
 
-export default function LoginPage() {
+export default function LoginPage({className = ''}) {
     const { login } = useAuth();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -23,7 +22,7 @@ export default function LoginPage() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center">
+        <div className={`min-h-screen flex items-center justify-center ${className}`}>
             <div className="w-full max-w-md">
                 <LoginForm onSubmit={handleLogin} />
 
