@@ -16,8 +16,8 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-    const [token, setToken] = useState(null);
-    const [user, setUser] = useState(null);
+    const [token, setToken] = useState();
+    const [user, setUser] = useState();
 
     useEffect(() => {
         const fetchMe = async () => {
