@@ -1,11 +1,13 @@
-import { useState } from "react";
-import LoginForm from "../../components/LoginForm.jsx";
+import {useState} from "react";
+import LoginForm from "../../components/login/LoginForm.jsx";
 import {useAuth} from "../../utils/auth/AuthProvider.jsx";
+import {useNavigate} from "react-router-dom";
 
 export default function LoginPage({className = ''}) {
-    const { login } = useAuth();
+    const {login} = useAuth();
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const navigate = useNavigate();
 
     const handleLogin = async (credentials) => {
         setLoading(true);
@@ -13,7 +15,7 @@ export default function LoginPage({className = ''}) {
 
         try {
             await login(credentials);
-            window.location.href = "/";
+            navigate("/", {replace: true});
         } catch (err) {
             setError(err.response?.data?.message || "Login failed");
         } finally {
@@ -24,7 +26,7 @@ export default function LoginPage({className = ''}) {
     return (
         <div className={`min-h-screen flex items-center justify-center ${className}`}>
             <div className="w-full max-w-md">
-                <LoginForm onSubmit={handleLogin} />
+                <LoginForm onSubmit={handleLogin}/>
 
                 {loading && (
                     <p className="text-gray-500 text-sm text-center mt-2">
