@@ -2,7 +2,7 @@
 import { createContext, useContext, useEffect, useLayoutEffect, useState } from "react";
 import axios from "axios";
 
-const API_URL = "http://localhost:5050";
+const API_URL = "http://localhost:5142";
 
 const AuthContext = createContext(undefined);
 
@@ -83,7 +83,7 @@ export const AuthProvider = ({ children }) => {
     }, []);
 
     const login = async (credentials) => {
-        const response = await axios.post(`${API_URL}/login`, credentials, {
+        const response = await axios.post(`${API_URL}/api/login`, credentials, {
             withCredentials: true,
         });
         setToken(response.data.accessToken);

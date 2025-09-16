@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function LoginForm({ onSubmit, className = "" }) {
     const [credentials, setCredentials] = useState({
-        email: "",
+        username: "",
         password: "",
     });
 
@@ -32,9 +32,9 @@ export default function LoginForm({ onSubmit, className = "" }) {
                         Email
                     </label>
                     <input
-                        type="email"
-                        name="email"
-                        value={credentials.email}
+                        type="text"
+                        name="username"
+                        value={credentials.username}
                         onChange={handleChange}
                         className="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring focus:ring-indigo-200"
                         placeholder="you@example.com"
