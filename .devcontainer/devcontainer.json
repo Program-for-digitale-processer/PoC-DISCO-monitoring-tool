@@ -8,6 +8,9 @@
     },
     "ghcr.io/devcontainers/features/git:1": {}
   },
+
+  "forwardPorts": [5173],
+  
   "customizations": {
     "jetbrains": {
       "backend": "rider"
