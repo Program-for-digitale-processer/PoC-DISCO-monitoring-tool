@@ -1,7 +1,9 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
+using PoC_DISCO_Backend.Models;
 
 namespace PoC_DISCO_Backend.Services;
 
@@ -40,7 +42,15 @@ public class JwtService : IJwtService
         return _tokenHandler.WriteToken(token);
     }
 
-    public ClaimsPrincipal? ValidateToken(string token)
+    public string GenerateRefreshToken()
+    {
+        var randomNumber = new byte[32];
+        using var rng = RandomNumberGenerator.Create();
+        rng.GetBytes(randomNumber);
+        return Convert.ToBase64String(randomNumber);
+    }
+    
+    public ClaimsPrincipal ValidateToken(string token)
     {
         var validationParameters = new TokenValidationParameters
         {

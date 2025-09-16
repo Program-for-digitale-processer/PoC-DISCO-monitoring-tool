@@ -1,10 +1,11 @@
 using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
+using PoC_DISCO_Backend.Models;
 
 namespace PoC_DISCO_Backend.Services;
 
 public interface IJwtService
 {
     string GenerateToken(User user);
-    ClaimsPrincipal? ValidateToken(string token);
+    string GenerateRefreshToken();
+    ClaimsPrincipal ValidateToken(string token);
 }

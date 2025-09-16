@@ -7,3 +7,18 @@ Content-Type: application/json
   "username": "user1",
   "password": "Passw0rd!1"
 }
+
+###
+
+POST {{API}}/api/refresh
+Content-Type: application/json
+
+{
+  "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0IiwidW5pcXVlX25hbWUiOiJ1c2VyMSIsIm5iZiI6MTc1ODAyMTU5MywiZXhwIjoxNzU4NjI2MzkzLCJpYXQiOjE3NTgwMjE1OTMsImlzcyI6IlBvQy1ESVNDTy1CYWNrZW5kIiwiYXVkIjoiUG9DLURJU0NPLUZyb250ZW5kIn0.GpS5ErmJTqhyZgP8SByYrFjiii0vqyCvd2K17w_Ngqw",
+  "refreshToken": "rpilzTgskjU++kFWNlGQikbL9kkJLsj1847R8B5rXxw="
+}
+
+###
+
+POST {{API}}/api/revoke
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiI0IiwidW5pcXVlX25hbWUiOiJ1c2VyMSIsIm5iZiI6MTc1ODAyMTU5MywiZXhwIjoxNzU4NjI2MzkzLCJpYXQiOjE3NTgwMjE1OTMsImlzcyI6IlBvQy1ESVNDTy1CYWNrZW5kIiwiYXVkIjoiUG9DLURJU0NPLUZyb250ZW5kIn0.GpS5ErmJTqhyZgP8SByYrFjiii0vqyCvd2K17w_Ngqw

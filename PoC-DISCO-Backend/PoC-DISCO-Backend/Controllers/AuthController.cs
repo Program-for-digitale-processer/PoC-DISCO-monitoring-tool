@@ -1,7 +1,7 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using PoC_DISCO_Backend.Dtos;
 using PoC_DISCO_Backend.Services;
-
 
 namespace PoC_DISCO_Backend.Controllers;
 
@@ -27,5 +27,31 @@ public class AuthController : ControllerBase
         }
 
         return Ok(loginResult);
+    }
+    
+    [HttpPost("refresh")]
+    public async Task<ActionResult<AuthResponseDto>> Refresh([FromBody] TokenDto tokenDto)
+    {
+        try
+        {
+            var authResponse = await _authService.GetRefreshTokenAsync(tokenDto);
+            
+            if (authResponse is null) return BadRequest("Invalid client request");
+        
+            return Ok(authResponse);
+        }
+        catch (Exception _)
+        {
+            return BadRequest("Invalid client request");
+        }
+    }
+    
+    [HttpPost("revoke"), Authorize]
+    public async Task<ActionResult> Revoke()
+    {
+        var userName = User.Identity?.Name;
+        var user = await _authService.RevokeRefreshTokenAsync(userName);
+        if (user is null) return BadRequest("Invalid client request");
+        return NoContent();
     }
 }

@@ -1,7 +1,6 @@
 using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Identity;
 
-namespace PoC_DISCO_Backend;
+namespace PoC_DISCO_Backend.Models;
 
 public class User
 {
@@ -11,4 +10,6 @@ public class User
     public string UserName { get; set; } = string.Empty;
     [Required]
     public string PasswordHash { get; set; } = string.Empty;
+    public string? RefreshToken { get; set; }
+    public DateTime? RefreshTokenExpiryTime { get; set; }
 }

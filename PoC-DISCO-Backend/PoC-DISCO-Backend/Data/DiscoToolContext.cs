@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using PoC_DISCO_Backend.Models;
 
 namespace PoC_DISCO_Backend.Data;
 
