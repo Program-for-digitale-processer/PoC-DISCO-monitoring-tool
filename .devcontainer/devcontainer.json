@@ -9,7 +9,7 @@
     "ghcr.io/devcontainers/features/git:1": {}
   },
 
-  "forwardPorts": [5173],
+  "forwardPorts": [5173, 5142],
   
   "customizations": {
     "jetbrains": {
